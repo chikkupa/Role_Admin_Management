@@ -176,6 +176,14 @@ func ViewUserDetails(w http.ResponseWriter, r *http.Request){
             model.UpdateUserStatus(user_id, status)
             message = "User status updated successfully!"
             log.Print("Status [", user.Username, "] updated successfully")
+
+            email := user.Email
+            if status == 1 {
+                library.SendMail(email, "Status Changed", "Your status has been changed to 'Active'")
+            }else{
+                library.SendMail(email, "Status Changed", "Your status has been changed to 'Deactive'")
+            }
+
         }else{
             message = "No change"
         }
