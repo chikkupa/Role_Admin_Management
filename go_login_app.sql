@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jul 06, 2018 at 08:29 PM
+-- Generation Time: Jul 08, 2018 at 09:40 PM
 -- Server version: 5.7.22-0ubuntu18.04.1
 -- PHP Version: 7.0.30-1+ubuntu18.04.1+deb.sury.org+1
 
@@ -26,6 +26,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `user`
 --
 
+DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `id` int(11) NOT NULL,
   `username` varchar(50) DEFAULT NULL,
@@ -34,13 +35,14 @@ CREATE TABLE `user` (
   `email` varchar(100) DEFAULT NULL,
   `dob` varchar(30) DEFAULT '',
   `gender` varchar(10) DEFAULT '',
-  `race` varchar(20) DEFAULT NULL,
-  `street` varchar(255) DEFAULT NULL,
+  `race` varchar(20) DEFAULT '',
+  `street` varchar(255) DEFAULT '',
   `city` varchar(50) DEFAULT '',
   `phone` varchar(20) DEFAULT '',
   `password` varchar(255) DEFAULT NULL,
   `role` int(11) DEFAULT '2',
-  `status` int(11) DEFAULT '2',
+  `status` int(11) DEFAULT '0',
+  `verify_string` varchar(255) DEFAULT NULL,
   `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -48,11 +50,12 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `username`, `name`, `last_name`, `email`, `dob`, `gender`, `race`, `street`, `city`, `phone`, `password`, `role`, `status`, `create_time`) VALUES
-(3, 'admin', 'Administrator', 'Last Name', 'admin@user.com', '', 'Male', NULL, NULL, '', '', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 1, 1, '2018-07-04 16:31:07'),
-(4, 'user_1', 'User Type 1', 'Last Name', 'user1@user.com', '', 'Male', NULL, NULL, '', '', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 2, 1, '2018-07-05 18:33:42'),
-(5, 'user_2', 'User Type 2', 'Last Name', 'user2@user.com', '', 'Male', NULL, NULL, '', '', '8cb2237d0679ca88db6464eac60da96345513964', 3, 1, '2018-07-05 18:47:12'),
-(6, 'user_3', 'User Type 3', 'Last Name', 'user3@user.com', '', 'Male', NULL, NULL, '', '', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 4, 1, '2018-07-06 09:54:09');
+INSERT INTO `user` (`id`, `username`, `name`, `last_name`, `email`, `dob`, `gender`, `race`, `street`, `city`, `phone`, `password`, `role`, `status`, `verify_string`, `create_time`) VALUES
+(3, 'admin', 'Administrator', 'Last Name', 'admin@user.com', '', 'Male', '', '', '', '', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 1, 1, NULL, '2018-07-04 16:31:07'),
+(4, 'user_1', 'User Type 1', 'Last Name', 'user1@user.com', '', 'Male', '', '', '', '', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 2, 1, NULL, '2018-07-05 18:33:42'),
+(5, 'user_2', 'User Type 2', 'Last Name', 'user2@user.com', '', 'Male', '', '', '', '', '8cb2237d0679ca88db6464eac60da96345513964', 3, 1, NULL, '2018-07-05 18:47:12'),
+(6, 'user_3', 'User Type 3', 'Last Name', 'user3@user.com', '', 'Male', '', '', '', '', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 4, 1, NULL, '2018-07-06 09:54:09'),
+(22, 'chikku', 'Chikku P A', '', 'chikku@hashin.in', '', 'Male', '', '', '', '', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 2, 2, '', '2018-07-08 07:47:10');
 
 -- --------------------------------------------------------
 
@@ -60,6 +63,7 @@ INSERT INTO `user` (`id`, `username`, `name`, `last_name`, `email`, `dob`, `gend
 -- Table structure for table `user_roles`
 --
 
+DROP TABLE IF EXISTS `user_roles`;
 CREATE TABLE `user_roles` (
   `id` int(11) NOT NULL,
   `role` varchar(50) DEFAULT NULL,
@@ -100,7 +104,7 @@ ALTER TABLE `user_roles`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 --
 -- AUTO_INCREMENT for table `user_roles`
 --
