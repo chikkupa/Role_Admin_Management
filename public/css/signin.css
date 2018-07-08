@@ -28,13 +28,25 @@ body{ background: url(../img/body-bg.png); color:#838383; font: 13px/1.7em 'Open
 	display: none;
 }
 
-.login-fields input {
+.login-fields input{
 	font-family: 'Open Sans';
 	font-size: 13px;
 	color: #8e8d8d;
 	padding: 11px 15px 10px 50px;
 	background-color: #fdfdfd;
 	width: 255px;
+	display: block;
+	margin: 0;
+	box-shadow: inset 2px 2px 4px #f1f1f1;
+}
+
+.login-fields select{
+	font-family: 'Open Sans';
+	font-size: 13px;
+	color: #8e8d8d;
+	padding: 10px 15px 10px 2px;
+	background-color: #fdfdfd;
+	height:40px;
 	display: block;
 	margin: 0;
 	box-shadow: inset 2px 2px 4px #f1f1f1;
@@ -86,6 +98,10 @@ body{ background: url(../img/body-bg.png); color:#838383; font: 13px/1.7em 'Open
 	padding-left: 6px;
 }
 
+.register .login-fields select {
+	width: 320px;
+	padding-left: 2px;
+}
 .register h1 {
 	color: #444;
 }
@@ -113,7 +129,7 @@ body{ background: url(../img/body-bg.png); color:#838383; font: 13px/1.7em 'Open
 		margin-top: 35px;
 	}
 	
-	.login-fields input {
+	.login-fields input, select {
 		width: 160px;
 	}
 	
@@ -129,6 +145,10 @@ body{ background: url(../img/body-bg.png); color:#838383; font: 13px/1.7em 'Open
 	.register .login-fields input {
 		width: 204px;
 		padding-left: 6px;
+	}
+	.register .login-fields select {
+		width: 225px;
+		padding-left: 2px;
 	}
 	
 }

@@ -75,10 +75,10 @@
 										<td>{{.Email}}</td>
 										<td>{{.Gender}}</td>
 										<td>
-											{{if eq .Status 1}}Approved{{end}}
-    										{{if eq .Status 2}}Not Active{{end}}
+											{{if eq .Status 1}}Active{{end}}
+    										{{if eq .Status 2}}Deactive{{end}}
     									</td>
-										<td><a href="">Edit</a> / <a href="">View</a></td>
+										<td><a href="/view_user?id={{.ID}}">Edit / View</a></td>
 									</tr>
 									{{end}}
 								</tbody>

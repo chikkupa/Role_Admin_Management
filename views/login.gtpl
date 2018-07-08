@@ -22,7 +22,7 @@
 <div class="account-container">	
 	<img src="img/logo.png">
 	<div class="content clearfix">		
-		<form action="#" method="post">		
+		<form action="/" method="post">		
 			<h1>Member Login</h1>					
 			<div class="login-fields">				
 				<p>Please provide your details</p>				
@@ -36,8 +36,11 @@
 					<input type="password" id="password" name="password" value="" placeholder="Password" class="login password-field"/>
 				</div>				
 			</div>
-			
-			<div class="login-actions">								
+			<div style="color: red; font-weight: bold;">
+				{{.}}
+			</div>
+			<div class="login-actions">		
+				<a href="/register">Register</a>						
 				<button class="button btn btn-success btn-large">Sign In</button>				
 			</div>
 		</form>
