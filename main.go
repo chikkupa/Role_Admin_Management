@@ -25,7 +25,8 @@ func main() {
     http.HandleFunc("/css/", serveResource)
     http.HandleFunc("/font/", serveResource)
     http.HandleFunc("/js/", serveResource)
-    
+
+    //added for testing
     err := http.ListenAndServe(":" + config.Port, nil) // setting listening port
     if err != nil {
         log.Fatal("ListenAndServe: ", err)
