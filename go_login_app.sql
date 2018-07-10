@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jul 08, 2018 at 09:40 PM
+-- Generation Time: Jul 10, 2018 at 10:58 PM
 -- Server version: 5.7.22-0ubuntu18.04.1
 -- PHP Version: 7.0.30-1+ubuntu18.04.1+deb.sury.org+1
 
@@ -54,8 +54,21 @@ INSERT INTO `user` (`id`, `username`, `name`, `last_name`, `email`, `dob`, `gend
 (3, 'admin', 'Administrator', 'Last Name', 'admin@user.com', '', 'Male', '', '', '', '', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 1, 1, NULL, '2018-07-04 16:31:07'),
 (4, 'user_1', 'User Type 1', 'Last Name', 'user1@user.com', '', 'Male', '', '', '', '', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 2, 1, NULL, '2018-07-05 18:33:42'),
 (5, 'user_2', 'User Type 2', 'Last Name', 'user2@user.com', '', 'Male', '', '', '', '', '8cb2237d0679ca88db6464eac60da96345513964', 3, 1, NULL, '2018-07-05 18:47:12'),
-(6, 'user_3', 'User Type 3', 'Last Name', 'user3@user.com', '', 'Male', '', '', '', '', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 4, 1, NULL, '2018-07-06 09:54:09'),
-(22, 'chikku', 'Chikku P A', '', 'chikku@hashin.in', '', 'Male', '', '', '', '', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 2, 2, '', '2018-07-08 07:47:10');
+(6, 'user_3', 'User Type 3', 'Last Name', 'user3@user.com', '', 'Male', '', '', '', '', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 4, 1, NULL, '2018-07-06 09:54:09');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_files`
+--
+
+DROP TABLE IF EXISTS `user_files`;
+CREATE TABLE `user_files` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `file_category` varchar(50) DEFAULT NULL,
+  `filename` text
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -80,6 +93,35 @@ INSERT INTO `user_roles` (`id`, `role`, `value`) VALUES
 (3, 'user_type_2', 3),
 (4, 'user_type_3', 4);
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_status`
+--
+
+DROP TABLE IF EXISTS `user_status`;
+CREATE TABLE `user_status` (
+  `id` int(11) NOT NULL,
+  `status` varchar(50) DEFAULT NULL,
+  `value` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user_status`
+--
+
+INSERT INTO `user_status` (`id`, `status`, `value`) VALUES
+(1, 'Pending Email Verification', 0),
+(2, 'Reserved Status', 1),
+(3, 'Pendent', 2),
+(4, 'OK', 3),
+(5, 'Uploaded', 4),
+(6, 'Verified', 5),
+(7, 'Approved', 6),
+(8, 'Meet', 7),
+(9, 'Accepted', 8),
+(10, 'Denied', 9);
+
 --
 -- Indexes for dumped tables
 --
@@ -91,9 +133,21 @@ ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `user_files`
+--
+ALTER TABLE `user_files`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `user_roles`
 --
 ALTER TABLE `user_roles`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `user_status`
+--
+ALTER TABLE `user_status`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -104,12 +158,22 @@ ALTER TABLE `user_roles`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+--
+-- AUTO_INCREMENT for table `user_files`
+--
+ALTER TABLE `user_files`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 --
 -- AUTO_INCREMENT for table `user_roles`
 --
 ALTER TABLE `user_roles`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `user_status`
+--
+ALTER TABLE `user_status`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
