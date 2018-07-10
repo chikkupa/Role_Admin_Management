@@ -22,7 +22,13 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</a>
+			<a class="brand" href="index.html">Logo </a>			
+</div></div></div>
 
+<div class="subnavbar">
+	<div class="subnavbar-inner">
+		<div class="container">
+			<ul class="mainnav"></ul>
 </div></div></div>
 
 <div class="main">

@@ -63,7 +63,13 @@ body{ background: url(../img/body-bg.png); color:#838383; font: 13px/1.7em 'Open
 	margin-bottom: 1.25em;
 }
 
-
+.regtr{
+	float:left;
+	padding:15px 0;
+}
+.mb_0{
+	margin-bottom:0px !important;
+}
 /** Text Under Box**/
 .login-extra {
 	display: block; 

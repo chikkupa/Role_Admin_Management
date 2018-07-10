@@ -31,16 +31,16 @@
 					<input type="text" id="username" name="username" value="" placeholder="Username" class="login username-field" />
 				</div>
 				
-				<div class="field">
+				<div class="field mb_0">
 					<label for="password">Password:</label>
 					<input type="password" id="password" name="password" value="" placeholder="Password" class="login password-field"/>
 				</div>				
-			</div>
+			</div>			
 			<div style="color: red; font-weight: bold;">
 				{{.}}
 			</div>
 			<div class="login-actions">		
-				<a href="/register">Register</a>						
+				<a href="/register" class="regtr">Register</a>						
 				<button class="button btn btn-success btn-large">Sign In</button>				
 			</div>
 		</form>

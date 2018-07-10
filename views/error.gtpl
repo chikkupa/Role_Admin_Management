@@ -22,7 +22,13 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</a>
+			<a class="brand" href="index.html">Logo </a>			
+</div></div></div>
 
+<div class="subnavbar">
+	<div class="subnavbar-inner">
+		<div class="container">
+			<ul class="mainnav"></ul>
 </div></div></div>
 
 <div class="main">
@@ -31,7 +37,7 @@
 			<div class="row">		
 				<div class="span12">					
 					<div class="error-container">
-						<h1>Sorry</h1>						
+						<h1>Error</h1>						
 						<h2>{{.Message_1}}</h2>
 						<div class="error-details">
 							{{.Message_2}}</a>.

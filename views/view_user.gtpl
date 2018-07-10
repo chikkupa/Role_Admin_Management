@@ -5,12 +5,10 @@
 <title>Dashboard - Bootstrap Admin Template</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css" rel="stylesheet">
+<link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600" rel="stylesheet">
 <link href="/css/font-awesome.css" rel="stylesheet">
 <link href="/css/style.css" rel="stylesheet">
-<link href="/css/pages/dashboard.css" rel="stylesheet">
 <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
 <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -45,65 +43,43 @@
 			</ul>
 </div></div></div>
 
-<div class="main">
+<div class="main">	
 	<div class="main-inner">
-		<div class="container">
-			<form action="/view_user" method="post">	
-				<input type="hidden" name="id" value="{{.ID}}">
-			<div class="row">
-				<div class="field">
-					<label for="name">Name:</label>
-					<label for="name">{{.Name}}</label>
-				</div>	
-				<div class="field">
-					<label for="name">Last Name:</label>
-					<label for="name">{{.LastName}}</label>
-				</div>
-				<div class="field">
-					<label for="name">Email:</label>
-					<label for="name">{{.Email}}</label>
-				</div>
-				<div class="field">
-					<label for="name">Date of Birth:</label>
-					<label for="name">{{.Dob}}</label>
-				</div>	
-				<div class="field">
-					<label for="name">Gender:</label>
-					<label for="name">{{.Gender}}</label>
-				</div>
-				<div class="field">
-					<label for="name">Race:</label>
-					<label for="name">{{.Race}}</label>
-				</div>
-				<div class="field">
-					<label for="name">Street:</label>
-					<label for="name">{{.Street}}</label>
-				</div>
-				<div class="field">
-					<label for="name">City:</label>
-					<label for="name">{{.City}}</label>
-				</div>
-				<div class="field">
-					<label for="name">Cel:</label>
-					<label for="name">{{.Phone}}</label>
-				</div>
-				<div class="field">
-					<label for="gender">Status:</label>
-					<select id="status" name="status" class="login" required>
-						<option value="">Status</option>
-						<option value="1" {{if eq .Status 1}}selected{{end}}>Active</option>
-						<option value="2" {{if eq .Status 2}}selected{{end}}>Deactive</option>
-					</select>	
-				</div>
-				<div style="color: red; font-weight: bold;">
-					{{.Message}}
-				</div>
-				<div class="login-actions">
-					<button class="button btn btn-primary btn-large">Register</button>
-				</div>
-			</div>
-		</form>
-</div></div></div>
+	    <div class="container">	
+			<div class="row">	      	
+				<div class="span12">	      		
+					<div class="widget">					
+						<div class="widget-content">
+							<div class="plan-features">
+								<form action="/view_user" method="post">	
+									<input type="hidden" name="id" value="{{.ID}}">
+									<ul>
+										<li><strong>Name: &nbsp; </strong> {{.Name}}</li>
+										<li><strong>Last Name: &nbsp; </strong> {{.LastName}}</li>
+										<li><strong>Email: &nbsp; </strong>  {{.Email}}</li>
+										<li><strong>Date of Birth: &nbsp; </strong>  {{.Dob}}</li>
+										<li><strong>Gender: &nbsp; </strong>  {{.Gender}}</li>
+										<li><strong>Street: &nbsp; </strong>  {{.Street}}</li>
+										<li><strong>City: &nbsp; </strong>  {{.City}}</li>
+										<li><strong>Cel: &nbsp; </strong>  {{.Phone}}</li>
+										<li><strong>Status: &nbsp; </strong>  
+											<select id="status" name="status" class="login" required>
+												<option value="">Status</option>
+												<option value="1" {{if eq .Status 1}}selected{{end}}>Active</option>
+												<option value="2" {{if eq .Status 2}}selected{{end}}>Deactive</option>
+											</select>
+										</li>
+									</ul>
+									<div style="color: red; font-weight: bold;">
+										{{.Message}}
+									</div>
+									<div class="login-actions">
+										<button class="button btn btn-primary btn-large">Register</button>
+									</div>
+								</form>	
+				</div></div></div></div>
+	      	
+</div></div></div></div>
 
 <div class="footer">
 	<div class="footer-inner">
@@ -113,13 +89,6 @@
 </div></div></div></div>
 <script src="js/jquery-1.7.2.min.js"></script> 
 <script src="js/bootstrap.js"></script> 
-<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script> 
-<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script> 
 <script src="js/base.js"></script> 
-<script>
-$(document).ready(function() {
-    $('#example').DataTable();
-} );
-</script>
 </body>
 </html>
