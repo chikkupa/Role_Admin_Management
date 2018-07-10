@@ -20,11 +20,13 @@ func main() {
     http.HandleFunc("/dashboard", controller.Dashboard)
     http.HandleFunc("/view_user", controller.ViewUserDetails)
     http.HandleFunc("/unauthorised", controller.CommonShowUnauthorised)
+    http.HandleFunc("/show_pdf", controller.DashboarShowPdf)
 
     http.HandleFunc("/img/", serveResource)
     http.HandleFunc("/css/", serveResource)
     http.HandleFunc("/font/", serveResource)
     http.HandleFunc("/js/", serveResource)
+    http.HandleFunc("/uploads/", serveResource)
 
     //added for testing
     err := http.ListenAndServe(":" + config.Port, nil) // setting listening port

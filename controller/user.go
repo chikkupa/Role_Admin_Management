@@ -44,6 +44,7 @@ func UserLogin(w http.ResponseWriter, r *http.Request) {
         library.PutCookie(w, "email", user.Email)
         library.PutCookie(w, "role", strconv.Itoa(user.Role))
         library.PutCookie(w, "password", user.Password)
+        library.PutCookie(w, "status", strconv.Itoa(user.Status))
 
         // writeSuccess("Lgin Success!", w)
 

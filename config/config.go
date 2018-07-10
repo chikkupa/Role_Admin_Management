@@ -2,6 +2,7 @@ package config
 
 var Host = "http://localhost"
 var Port = "8080"
+var Upload_location = "http://localhost:8080/uploads/"
 
 /* Database config */
 var Db_name = "go_login_app"

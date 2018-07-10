@@ -26,8 +26,19 @@ type User struct {
     Message string
 }
 
+type UserFile struct{
+    ID int
+    User_id int
+    File_category string
+    Filename string
+}
+
 func Initialize() User {
     return User{ID: 0, Name: "", LastName: "", Username: "", Gender: "", Dob: "", Race: "", Email: "", Password: "", Role: 0, Street: "", City: "", Phone: "", Status: 0,  Message: ""}
+}
+
+func FilesInitialize() UserFile {
+    return UserFile{ID: 0, User_id: 0, File_category: "", Filename: ""}
 }
 
 func Register(username string, name string, email string, password string, gender string) {
@@ -237,4 +248,83 @@ func UpdateUserStatus(user_id int, status int){
     if err != nil {
         log.Fatal(err)
     }
+}
+
+func UserFileAdd(user_id int, file_category string, filename string){
+    db, err := sql.Open(config.Mysql, config.Dbconnection)
+    if err != nil {
+        log.Fatal(err)
+    }
+    defer db.Close()
+
+    stmt, err := db.Prepare("DELETE FROM user_files where user_id=? and file_category=?")
+    _, err = stmt.Exec(user_id, file_category)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    stmt, err = db.Prepare("INSERT user_files SET user_id=?, file_category=?, filename=?")
+    _, err = stmt.Exec(user_id, file_category, filename)
+
+    if err != nil {
+        log.Fatal(err)
+    }
+}
+
+func GetUserFiles(user_id int) interface{} {
+
+    db, err := sql.Open(config.Mysql, config.Dbconnection)
+
+    if err != nil {
+        log.Fatal(err)
+    }
+    defer db.Close()
+
+    results, err := db.Query("select id, user_id, file_category, filename from user_files where user_id=?", user_id)
+    if err != nil {
+        log.Print("Query Execution Error: user_model : GetUserFiles")// proper error handling instead of panic in your app
+    }
+
+    files := []interface{}{}
+
+    for results.Next() {
+        var file UserFile
+        // for each row, scan the result into our tag composite object
+        err = results.Scan(&file.ID, &file.User_id, &file.File_category, &file.Filename)
+   
+        if err != nil {
+            panic(err.Error()) // proper error handling instead of panic in your app
+        }
+
+        files = append(files, file)
+    }
+    
+    return files
+}
+
+func GetUserFileDetails(id int) UserFile {
+    db, err := sql.Open(config.Mysql, config.Dbconnection)
+
+    if err != nil {
+        log.Fatal(err)
+    }
+    defer db.Close()
+
+    results, err := db.Query("select id, user_id, file_category, filename from user_files where id=?", id)
+
+    file := FilesInitialize()
+
+    if err != nil {
+        panic(err.Error()) // proper error handling instead of panic in your app
+    }
+
+    if results.Next() {
+        err = results.Scan(&file.ID, &file.User_id, &file.File_category, &file.Filename)
+   
+        if err != nil {
+            panic(err.Error()) // proper error handling instead of panic in your app
+        }
+    }
+
+    return file;
 }
